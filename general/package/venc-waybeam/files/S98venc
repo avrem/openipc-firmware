@@ -1,0 +1,17 @@
+#!/bin/sh
+
+case "$1" in
+	start)
+		echo "Starting venc service..."
+        venc > /dev/null 2>&1 &
+		;;
+
+	stop)
+		echo "Stopping venc service..."
+		killall -q venc
+		;;
+
+	*)
+		echo "Usage: $0 {start|stop}"
+		exit 1
+esac
